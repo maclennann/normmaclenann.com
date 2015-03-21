@@ -13,5 +13,3 @@ deploy:
   bucket: normmaclennan.com-static
   local-dir: dist
   acl: public_read
-  on:
-    repo: maclennann/normmaclennan.com
