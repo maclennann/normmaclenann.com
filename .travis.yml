@@ -12,7 +12,7 @@ deploy:
     secure: WjoHuCdfE72SP15nrivlMLzz84x22ZRC76vSAQ4OiCdrlqvk4l0VvYGoGiZIUTSGowMkVZl+NIavhDMcssxR/IboDciXEe94A74iXr936O+RY4Z/GXnC64nGbakuJGb4dPdR9nd13jVak5jZqq13jk+R2pd5x9rKAlqV5VKYL2Y=
   bucket: normmaclennan.com-static
   endpoint: normmaclennan.com-static.s3-website-us-west-2.amazonaws.com
-  region: "US West (Oregon) Region"
+  region: "us-west-2"
   skip_cleanup: true
   local-dir: dist
   acl: public_read
