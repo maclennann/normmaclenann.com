@@ -6,7 +6,8 @@ before_script:
   - bower install
 deploy:
   provider: s3
-  access_key_id: H+zO/6SThwI1kJ+9944w7/9F+nJQ26JgBMiTqhlPDtuv2AQxr2s0msOg4nRg4rs7Ksrl9nvUSOxMKXrUseX7kzoKADxWIbLaSqjZsbcEkQY04DmeF47JQSqzF838lq7AKPgEGmwvCrq8Wi3O+SYOez920d8zljj9+JRU+40axEA=
+  access_key_id:
+    secure: H+zO/6SThwI1kJ+9944w7/9F+nJQ26JgBMiTqhlPDtuv2AQxr2s0msOg4nRg4rs7Ksrl9nvUSOxMKXrUseX7kzoKADxWIbLaSqjZsbcEkQY04DmeF47JQSqzF838lq7AKPgEGmwvCrq8Wi3O+SYOez920d8zljj9+JRU+40axEA=
   secret_access_key:
     secure: WjoHuCdfE72SP15nrivlMLzz84x22ZRC76vSAQ4OiCdrlqvk4l0VvYGoGiZIUTSGowMkVZl+NIavhDMcssxR/IboDciXEe94A74iXr936O+RY4Z/GXnC64nGbakuJGb4dPdR9nd13jVak5jZqq13jk+R2pd5x9rKAlqV5VKYL2Y=
   bucket: normmaclennan.com-static
