@@ -13,6 +13,19 @@ body {
   background-color: #D6DBDC;
 }
 
+.dark-link a {
+  color: #333;
+}
+
+.dark-link i.fa {
+  font-size: 24px;
+}
+
+.dark-link a:hover {
+  color: #4183c4;
+  text-decoration: none;
+}
+
 .transition {
   -moz-transition-property: background-color, color;
   -o-transition-property: background-color, color;

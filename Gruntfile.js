@@ -28,6 +28,18 @@ module.exports = function (grunt) {
     // Project settings
     config: config,
 
+    bake: {
+      build: {
+        options: {
+          // Task-specific options go here.
+        },
+        files: {
+          // files go here, like so:
+          "app/index.html": "app/base.html"
+        }
+      },
+  	},
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -51,6 +63,10 @@ module.exports = function (grunt) {
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
+      },
+      bake: {
+        files: ["<%= config.app %>/partials/**", "<%= config.app %>/base.html"],
+        tasks: "bake::build"
       },
       livereload: {
         options: {
@@ -289,7 +305,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
-            '{,*/}*.html',
+            'index.html',
             'styles/fonts/{,*/}*.*'
           ]
         }, {
@@ -314,13 +330,13 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: 'bower_components/open-sans',
-          src: 'fonts/**/*',
+          src: ['fonts/{regular,bold,light}/*'],
           dest: '<%= config.dist %>'
         }, {
           expand: true,
           dot: true,
           cwd: 'bower_components/roboto-fontface',
-          src: 'fonts/*',
+          src: 'fonts/Roboto-Regular.woff2',
           dest: '<%= config.dist %>/styles/'
         }]
       },
@@ -377,6 +393,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'bake:build',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -407,6 +424,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'bake:build',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
