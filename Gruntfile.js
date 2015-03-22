@@ -35,7 +35,7 @@ module.exports = function (grunt) {
         },
         files: {
           // files go here, like so:
-          "app/index.html": "app/base.html"
+          ".tmp/index.html": "app/base.html"
         }
       },
   	},
@@ -164,7 +164,8 @@ module.exports = function (grunt) {
     // Add vendor prefixed styles
     autoprefixer: {
       options: {
-        browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+        browsers: ['> 1%', 'last 4 versions', 'Firefox ESR', 'Opera 12.1'],
+        diff: true
       },
       dist: {
         files: [{
@@ -207,7 +208,7 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/index.html'
+      html: '.tmp/index.html'
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -219,7 +220,7 @@ module.exports = function (grunt) {
           '<%= config.dist %>/styles'
         ]
       },
-      html: ['<%= config.dist %>/{,*/}*.html'],
+      html: ['<%= config.dist %>/{,*/}*.html', '.tmp/*.html'],
       css: ['<%= config.dist %>/styles/{,*/}*.css']
     },
 
@@ -305,12 +306,16 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
-            'index.html',
             'styles/fonts/{,*/}*.*'
           ]
         }, {
-          src: 'CNAME',
-          dest: '<%= config.dist %>/CNAME'
+          expand: true,
+          dot: true,
+          cwd: '.tmp',
+          dest: '<%= config.dist %>',
+          src: [
+            '*.html'
+          ]
         }, {
           src: 'node_modules/apache-server-configs/dist/.htaccess',
           dest: '<%= config.dist %>/.htaccess'
