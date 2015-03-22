@@ -35,7 +35,7 @@ module.exports = function (grunt) {
         },
         files: {
           // files go here, like so:
-          ".tmp/index.html": "app/base.html"
+          '.tmp/index.html': 'app/base.html'
         }
       },
   	},
@@ -65,8 +65,8 @@ module.exports = function (grunt) {
         tasks: ['newer:copy:styles', 'autoprefixer']
       },
       bake: {
-        files: ["<%= config.app %>/partials/**", "<%= config.app %>/base.html"],
-        tasks: "bake::build"
+        files: ['<%= config.app %>/partials/**', '<%= config.app %>/base.html'],
+        tasks: 'bake::build'
       },
       livereload: {
         options: {
@@ -306,7 +306,8 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'error.html'
           ]
         }, {
           expand: true,

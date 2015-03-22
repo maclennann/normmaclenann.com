@@ -63,6 +63,14 @@ body {
   padding-right: 30px;
 }
 
+.error-image {
+  max-height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 0px;
+}
+
 header {
   font-family: 'open sans',sans-serif;
   padding-top: 15px;

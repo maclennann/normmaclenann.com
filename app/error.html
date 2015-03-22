@@ -30,26 +30,26 @@
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <!--(bake partials/header.html)-->
-
   <div class="container content">
     <div class="row main">
-      <div class="primary col-md-8 col-sm-12 col-xs-12">
-        <!--(bake partials/sections/about.html)-->
-        <!--(bake partials/sections/history.html)-->
-        <!--(bake partials/sections/projects.html)-->
-      </div>
-
-      <div class="secondary col-md-4 col-sm-12 col-xs-12">
-        <!--(bake partials/sections/principles.html)-->
-        <!--(bake partials/sections/skills.html)-->
-        <!--(bake partials/sections/recentposts.html)-->
+      <div class="primary col-md-12 col-sm-12 col-xs-12">
+        <section class="error section">
+          <div class="inner">
+            <h3>ERROR</h3>
+            <p>Uhh, you probably wanted to go <a href="index.html">here</a>.</p>
+            <p>Just hang on, I'll redirect you in <span id="countdown">X</span> seconds. Or just click
+               the link. Or panic and close your browser.</p>
+               <center>
+            <picture>
+              <source type="image/webp" srcset="images/404.webp" />
+              <img src="images/404.png" class="error-image img-responsive"/>
+            </picture></center>
+          </div>
+        </section>
       </div>
     </div>
-
-    <!--(bake partials/footer.html)-->
-
   </div>
+
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -88,11 +88,14 @@
   <!-- endbuild -->
 
   <script>
-  $(function(){
-    nmcom.views.blogPosts('#blog-items');
-  });
+    $(function(){
+      nmcom.views.countdown('#countdown',function(){
+          // Only redirect in prod...otherwise development is difficult.
+          if(window.location.href.match(/normmaclennan.com/)) {
+            window.location = 'index.html';
+          }
+      }, 5);
+    });
   </script>
-
-
 </body>
 </html>
